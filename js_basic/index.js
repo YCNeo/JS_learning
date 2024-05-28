@@ -1,19 +1,16 @@
-// Constructor function
-function Person(name) {
-    this.name = name;
+const circle = {
+    redius: 1,
+    draw() { console.log('circle'); }
 }
 
-const person1 = new Person('Alice');
+circle.draw()
 
+let another = {}
+for(let key in circle) 
+    another[key] = circle[key]
 
-// Adding a method to the prototype
-Person.prototype.greet = function () {
-    console.log(`Hello, my name is ${this.name}.`);
-};
+const another = Object.assign({}, circle);
 
-// Creating an object
-const person = new Person('Alice');
+const another = { ...circle };
 
-person1.greet(); // Output: Hello, my name is Alice.
-// Accessing method from prototype
-person.greet(); // Output: Hello, my name is Alice.
+console.log(another)
