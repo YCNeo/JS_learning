@@ -7,21 +7,20 @@ function Stopwatch() {
 
     this.start = function () {
         if (running)
-            throw console.error('start already');
-        else {
-            startTime = Date.now();
-            running = true;
-        }
+            throw new Error('start already');
+
+        startTime = Date.now();
+        running = true;
     };
 
     this.stop = function () {
         if (!running)
             throw console.error('stop already');
-        else {
-            endTime = Date.now();
-            duration += (endTime - startTime) / 1000;
-            running = false;
-        }
+
+        endTime = Date.now();
+        duration += (endTime - startTime) / 1000;
+        running = false;
+        // console.log('STOP!');
     };
 
     Object.defineProperty(this, 'duration', {
