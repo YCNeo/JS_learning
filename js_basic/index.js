@@ -1,16 +1,14 @@
-const circle = {
-    redius: 1,
-    draw() { console.log('circle'); }
-}
+// to cheak if value is number
+function isValue(value) { return typeof value === 'number' };
 
-circle.draw()
+const List = [1, -1, 0, 2, 6, 'Neo', 'Rong', true, false];
 
-let another = {}
-for(let key in circle) 
-    another[key] = circle[key]
+// const filtered = List.filter(value => isValue(value));
 
-const another = Object.assign({}, circle);
+// const items = filtered.map(value => value * value);
 
-const another = { ...circle };
+const items = List
+    .filter(value => isValue(value))
+    .map(value => value * value);
 
-console.log(another)
+console.log(items);
