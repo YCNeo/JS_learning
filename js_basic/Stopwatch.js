@@ -1,3 +1,9 @@
+// Date.now() only includes timestamp
+// new Date() includes full time information
+
+// throw new Error() can be catch as error and interrupt the runtime
+// console.error() only output the error message, but return undefine
+
 function Stopwatch() {
     let startTime, endTime, running = false, duration = 0;
 
@@ -15,7 +21,7 @@ function Stopwatch() {
 
     this.stop = function () {
         if (!running)
-            throw console.error('stop already');
+            throw new Error('stop already');
 
         endTime = Date.now();
         duration += (endTime - startTime) / 1000;
