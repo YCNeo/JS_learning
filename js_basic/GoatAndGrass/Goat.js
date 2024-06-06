@@ -3,12 +3,19 @@ import Creature from './creature.js'
 export default class Goat extends Creature {
     #foodPoint;
     #maxAge = 70;
+    #mark = 'X';
 
-    constructor(Fp) {
+    constructor() {
         super();
         this.#foodPoint = 20;
     }
 
-    isLife() { return this.age <= this.maxAge; }
+    eat() { this.#foodPoint += 5; }
+
+    isLife() { return this.age <= this.#maxAge; }
+
+
+    // getter
+    set foodPoint(foodPoint) { this.#foodPoint = foodPoint; }
 
 }
