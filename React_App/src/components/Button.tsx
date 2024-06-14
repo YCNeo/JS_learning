@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Alert from "./Alert";
 
 type Props = {
   children: string;
@@ -23,15 +24,23 @@ const getColor = () => myColorList[getRandom(myColorList.length)];
 
 const Button = ({ children, onClick }: Props) => {
   const [color, setColor] = useState("secondary");
+  const [isAlert, setIsAlert] = useState(false);
 
   return (
     <>
+      {isAlert && (
+        <Alert onClose={() => setIsAlert(false)}>
+          <strong>Holy guacamole!</strong> You should check in on some of those
+          fields below.
+        </Alert>
+      )}
       <button
         type="button"
         className={"btn btn-" + color}
         onClick={() => {
           onClick();
           setColor(getColor());
+          setIsAlert(true);
         }}
       >
         {children}
